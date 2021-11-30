@@ -21,17 +21,7 @@ export class AvatarInitial {
     */
    @Prop() name: string;
 
-
-   test = {
-    backgroundColor: `green`,
-    padding: `20px`
-  }
-
   render() {
-
-    console.log(this.generateAvatar(), this.test);
-
-
     return (
       <Host>
         <div style={this.generateAvatar()}>
@@ -68,6 +58,10 @@ export class AvatarInitial {
   }
 
   getInitails(): string {
+
+    if(this.name.split(' ').length <= 1) {
+      return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(' ')[0].charAt(1).toUpperCase()
+    }
     return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(" ")[1].charAt(0).toUpperCase();
   }
 
