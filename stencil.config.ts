@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'web-component',
+  buildEs5: false,
   outputTargets: [
     {
       type: 'dist',
