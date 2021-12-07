@@ -3,7 +3,6 @@ import { Config } from '@stencil/core';
 export const config: Config = {
   namespace: 'web-component',
   invisiblePrehydration: true,
-  sourceMap: true,
   outputTargets: [
     {
       type: 'dist',

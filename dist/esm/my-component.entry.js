@@ -20,5 +20,3 @@ let MyComponent = class {
 MyComponent.style = myComponentCss;
 
 export { MyComponent as my_component };
-
-//# sourceMappingURL=my-component.entry.js.map

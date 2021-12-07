@@ -78,5 +78,3 @@ const defineCustomElements = (opts) => {
 };
 
 export { AvatarInitial, MyComponent, defineCustomElements };
-
-//# sourceMappingURL=index.js.map

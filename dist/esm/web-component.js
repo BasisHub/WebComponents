@@ -15,5 +15,3 @@ const patchBrowser = () => {
 patchBrowser().then(options => {
   return bootstrapLazy([["avatar-initial",[[1,"avatar-initial",{"width":[2],"height":[2],"name":[1]}]]],["my-component",[[1,"my-component",{"first":[1],"middle":[1],"last":[1]}]]]], options);
 });
-
-//# sourceMappingURL=web-component.js.map
