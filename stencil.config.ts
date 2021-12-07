@@ -2,11 +2,13 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'web-component',
-  buildEs5: false,
+  invisiblePrehydration: true,
+  sourceMap: true,
   outputTargets: [
     {
       type: 'dist',
       esmLoaderPath: '../loader',
+      empty: false,
     },
     {
       type: 'dist-custom-elements-bundle',

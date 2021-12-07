@@ -1,1 +1,2 @@
-import{p as t,b as a}from"./p-014ec854.js";(()=>{const a=import.meta.url,i={};return""!==a&&(i.resourcesUrl=new URL(".",a).href),t(i)})().then((t=>a([["p-c941815a",[[1,"avatar-initial",{width:[2],height:[2],name:[1]}]]],["p-6b785d93",[[1,"my-component",{first:[1],middle:[1],last:[1]}]]]],t)));
+import{p as t,b as i}from"./p-014ec854.js";const a=()=>{const i=import.meta.url;const a={};if(i!==""){a.resourcesUrl=new URL(".",i).href}return t(a)};a().then((t=>i([["p-534fa1b8",[[1,"avatar-initial",{width:[2],height:[2],name:[1]}]]],["p-17f3f22c",[[1,"my-component",{first:[1],middle:[1],last:[1]}]]]],t)));
+//# sourceMappingURL=web-component.esm.js.map

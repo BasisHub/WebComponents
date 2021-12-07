@@ -93,3 +93,4 @@ export class AvatarInitial {
     }
   }; }
 }
+//# sourceMappingURL=avatar-initial.js.map

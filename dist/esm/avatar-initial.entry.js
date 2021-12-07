@@ -39,3 +39,5 @@ let AvatarInitial = class {
 AvatarInitial.style = avatarInitialCss;
 
 export { AvatarInitial as avatar_initial };
+
+//# sourceMappingURL=avatar-initial.entry.js.map

@@ -19,3 +19,5 @@ const defineCustomElements = (win, options) => {
 };
 
 exports.defineCustomElements = defineCustomElements;
+
+//# sourceMappingURL=loader.cjs.js.map

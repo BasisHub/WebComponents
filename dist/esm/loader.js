@@ -15,3 +15,5 @@ const defineCustomElements = (win, options) => {
 };
 
 export { defineCustomElements };
+
+//# sourceMappingURL=loader.js.map

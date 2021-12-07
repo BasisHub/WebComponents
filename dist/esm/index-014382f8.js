@@ -1000,3 +1000,5 @@ const nextTick = /*@__PURE__*/ (cb) => promiseResolve().then(cb);
 const writeTask = /*@__PURE__*/ queueTask(queueDomWrites, true);
 
 export { Host as H, bootstrapLazy as b, h, promiseResolve as p, registerInstance as r };
+
+//# sourceMappingURL=index-014382f8.js.map
