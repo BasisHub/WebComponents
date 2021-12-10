@@ -1,13 +1,10 @@
-import { h, Host, proxyCustomElement } from '@stencil/core/internal/client';
-export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
+import { r as registerInstance, h, H as Host } from './index-014382f8.js';
 
 const avatarInitialCss = ":host{display:block}";
 
-let AvatarInitial$1 = class extends HTMLElement {
-  constructor() {
-    super();
-    this.__registerHost();
-    this.__attachShadow();
+let AvatarInitial = class {
+  constructor(hostRef) {
+    registerInstance(this, hostRef);
   }
   render() {
     return (h(Host, null, h("div", { style: this.generateAvatar() }, this.getInitails()), h("slot", null)));
@@ -37,8 +34,8 @@ let AvatarInitial$1 = class extends HTMLElement {
     }
     return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(" ")[1].charAt(0).toUpperCase();
   }
-  static get style() { return avatarInitialCss; }
 };
+AvatarInitial.style = avatarInitialCss;
 
 function format(first, middle, last) {
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
@@ -46,11 +43,9 @@ function format(first, middle, last) {
 
 const myComponentCss = ":host{display:block}";
 
-let MyComponent$1 = class extends HTMLElement {
-  constructor() {
-    super();
-    this.__registerHost();
-    this.__attachShadow();
+let MyComponent = class {
+  constructor(hostRef) {
+    registerInstance(this, hostRef);
   }
   getText() {
     return format(this.first, this.middle, this.last);
@@ -58,22 +53,7 @@ let MyComponent$1 = class extends HTMLElement {
   render() {
     return h("div", null, "Hello, World! I'm ", this.getText());
   }
-  static get style() { return myComponentCss; }
 };
+MyComponent.style = myComponentCss;
 
-const AvatarInitial = /*@__PURE__*/proxyCustomElement(AvatarInitial$1, [1,"avatar-initial",{"width":[2],"height":[2],"name":[1]}]);
-const MyComponent = /*@__PURE__*/proxyCustomElement(MyComponent$1, [1,"my-component",{"first":[1],"middle":[1],"last":[1]}]);
-const defineCustomElements = (opts) => {
-  if (typeof customElements !== 'undefined') {
-    [
-      AvatarInitial,
-  MyComponent
-    ].forEach(cmp => {
-      if (!customElements.get(cmp.is)) {
-        customElements.define(cmp.is, cmp, opts);
-      }
-    });
-  }
-};
-
-export { AvatarInitial, MyComponent, defineCustomElements };
+export { AvatarInitial as avatar_initial, MyComponent as my_component };

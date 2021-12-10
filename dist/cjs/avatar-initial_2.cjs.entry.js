@@ -1,16 +1,17 @@
-import { h, Host, proxyCustomElement } from '@stencil/core/internal/client';
-export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+const index = require('./index-5bebc6c3.js');
 
 const avatarInitialCss = ":host{display:block}";
 
-let AvatarInitial$1 = class extends HTMLElement {
-  constructor() {
-    super();
-    this.__registerHost();
-    this.__attachShadow();
+let AvatarInitial = class {
+  constructor(hostRef) {
+    index.registerInstance(this, hostRef);
   }
   render() {
-    return (h(Host, null, h("div", { style: this.generateAvatar() }, this.getInitails()), h("slot", null)));
+    return (index.h(index.Host, null, index.h("div", { style: this.generateAvatar() }, this.getInitails()), index.h("slot", null)));
   }
   generateAvatar() {
     let colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e", "#16a085",
@@ -37,8 +38,8 @@ let AvatarInitial$1 = class extends HTMLElement {
     }
     return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(" ")[1].charAt(0).toUpperCase();
   }
-  static get style() { return avatarInitialCss; }
 };
+AvatarInitial.style = avatarInitialCss;
 
 function format(first, middle, last) {
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
@@ -46,34 +47,18 @@ function format(first, middle, last) {
 
 const myComponentCss = ":host{display:block}";
 
-let MyComponent$1 = class extends HTMLElement {
-  constructor() {
-    super();
-    this.__registerHost();
-    this.__attachShadow();
+let MyComponent = class {
+  constructor(hostRef) {
+    index.registerInstance(this, hostRef);
   }
   getText() {
     return format(this.first, this.middle, this.last);
   }
   render() {
-    return h("div", null, "Hello, World! I'm ", this.getText());
-  }
-  static get style() { return myComponentCss; }
-};
-
-const AvatarInitial = /*@__PURE__*/proxyCustomElement(AvatarInitial$1, [1,"avatar-initial",{"width":[2],"height":[2],"name":[1]}]);
-const MyComponent = /*@__PURE__*/proxyCustomElement(MyComponent$1, [1,"my-component",{"first":[1],"middle":[1],"last":[1]}]);
-const defineCustomElements = (opts) => {
-  if (typeof customElements !== 'undefined') {
-    [
-      AvatarInitial,
-  MyComponent
-    ].forEach(cmp => {
-      if (!customElements.get(cmp.is)) {
-        customElements.define(cmp.is, cmp, opts);
-      }
-    });
+    return index.h("div", null, "Hello, World! I'm ", this.getText());
   }
 };
+MyComponent.style = myComponentCss;
 
-export { AvatarInitial, MyComponent, defineCustomElements };
+exports.avatar_initial = AvatarInitial;
+exports.my_component = MyComponent;

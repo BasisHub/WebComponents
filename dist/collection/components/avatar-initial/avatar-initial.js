@@ -14,7 +14,6 @@ export class AvatarInitial {
     let colorIndex = charIndex % 19;
     let style = {
       backgroundColor: colors[colorIndex],
-      padding: "20px",
       width: this.width + "px",
       height: this.height + "px",
       color: '#FFF',

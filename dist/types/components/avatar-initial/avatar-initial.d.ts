@@ -14,7 +14,6 @@ export declare class AvatarInitial {
   render(): any;
   generateAvatar(): {
     backgroundColor: string;
-    padding: string;
     width: string;
     height: string;
     color: string;

@@ -14,7 +14,7 @@ const patchEsm = () => {
 const defineCustomElements = (win, options) => {
   if (typeof window === 'undefined') return Promise.resolve();
   return patchEsm().then(() => {
-  return index.bootstrapLazy([["avatar-initial.cjs",[[1,"avatar-initial",{"width":[2],"height":[2],"name":[1]}]]],["my-component.cjs",[[1,"my-component",{"first":[1],"middle":[1],"last":[1]}]]]], options);
+  return index.bootstrapLazy([["avatar-initial_2.cjs",[[1,"avatar-initial",{"width":[2],"height":[2],"name":[1]}],[1,"my-component",{"first":[1],"middle":[1],"last":[1]}]]]], options);
   });
 };
 
