@@ -6,8 +6,6 @@ name: Node.js Package
 on:
   release:
     types: [created]
-  create-webcomponent-to-generate-avatar-icons-from-initial-#1:
-    types: [created]
 
 jobs:
   build:
