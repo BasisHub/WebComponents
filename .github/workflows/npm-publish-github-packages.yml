@@ -10,12 +10,18 @@ on:
 
 jobs:
   update-package-version:
-    runs-on: ubuntu-latest
+     runs-on: ubuntu-latest
     steps:
-      - run: npm version patch
-      - run: git add *
-      - run: git commit -m "Updated Package.json file for release"
-      - run: git push
+    uses: taichi/actions-package-update@master
+    env:
+      AUTHOR_EMAIL: john@example.com
+      AUTHOR_NAME: John
+      EXECUTE: "true"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      UPDATE_COMMAND: npm
+    with:
+      args: update
+      
   build:
     needs: update-package-version
     runs-on: ubuntu-latest
