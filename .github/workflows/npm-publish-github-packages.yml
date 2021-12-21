@@ -4,8 +4,9 @@
 name: Node.js Package
 
 on:
-  cicd-test:
-    types: [created]
+ push:
+    branches:
+      - cicd-test
 
 jobs:
   build:
