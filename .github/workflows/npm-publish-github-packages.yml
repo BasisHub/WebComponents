@@ -9,7 +9,14 @@ on:
       - cicd-test
 
 jobs:
+  update-package-version:
+    steps:
+      - run: npm version patch
+      - run: git add *
+      - run: git commit -m "Updated Package.json file for release"
+      - run: git push
   build:
+    needs: update-package-version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,6 +24,7 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
+
 
   publish-gpr:
     needs: build
