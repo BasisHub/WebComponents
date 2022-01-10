@@ -74,8 +74,8 @@ export class AvatarInitial {
 
     console.log("event is", event);
     // tslint:disable-next-line
-    (window as any).basisDispatchNativeEvent(event);
-    (window as any).basisDispatchCustomEvent(newDiv, custom);
+    (window as any).basisDispatchNativeEvent(event).then(() => console.log("DISPATCHED EVENT"));
+    (window as any).basisDispatchCustomEvent(newDiv, custom).then(() => console.log("DISPATCHED CUSTOM EVENT"));
     
 
   }
