@@ -38,11 +38,13 @@ let AvatarInitial = class {
     // const target = new EventTarget();
     // target.addEventListener('customEvent', console.log);
     // target.dispatchEvent(new Event('customEvent'));
-    console.log("new avatar testing click 3.0");
-    // var custom=new CustomEvent('custom_event',{bubbles:true,cancelable:true});
+    console.log("new avatar testing click 4.0");
+    var custom = new CustomEvent('custom_event', { bubbles: true, cancelable: true });
+    const newDiv = document.createElement("div");
     console.log("event is", event);
     // tslint:disable-next-line
     window.basisDispatchNativeEvent(event);
+    window.basisDispatchCustomEvent(newDiv, custom);
   }
 };
 AvatarInitial.style = avatarInitialCss;
