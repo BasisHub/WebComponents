@@ -11,6 +11,7 @@ export declare class AvatarInitial {
    * The user name
    */
   name: string;
+  myElement: HTMLElement;
   render(): any;
   generateAvatar(): {
     backgroundColor: string;
@@ -23,5 +24,5 @@ export declare class AvatarInitial {
     borderRadius: string;
   };
   getInitails(): string;
-  onAvatarClick(event: Event): void;
+  onAvatarClick(event: Event, html: HTMLElement): void;
 }

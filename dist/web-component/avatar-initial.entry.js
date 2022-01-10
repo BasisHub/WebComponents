@@ -1,4 +1,4 @@
-import { r as registerInstance, h, e as Host } from './index-d5c799a6.js';
+import { r as registerInstance, h, e as Host, g as getElement } from './index-dc0b02ab.js';
 
 const avatarInitialCss = ":host{display:block}";
 
@@ -7,7 +7,7 @@ let AvatarInitial = class {
     registerInstance(this, hostRef);
   }
   render() {
-    return (h(Host, null, h("div", { style: this.generateAvatar(), onClick: (event) => this.onAvatarClick(event) }, this.getInitails()), h("slot", null)));
+    return (h(Host, null, h("div", { id: "hello", style: this.generateAvatar(), onClick: (event) => this.onAvatarClick(event, document.getElementById("hello")) }, this.getInitails()), h("slot", null)));
   }
   generateAvatar() {
     let colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e", "#16a085",
@@ -34,18 +34,25 @@ let AvatarInitial = class {
     }
     return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(" ")[1].charAt(0).toUpperCase();
   }
-  onAvatarClick(event) {
+  onAvatarClick(event, html) {
     // const target = new EventTarget();
     // target.addEventListener('customEvent', console.log);
     // target.dispatchEvent(new Event('customEvent'));
-    console.log("new avatar testing click 4.0");
-    var custom = new CustomEvent('custom_event', { bubbles: true, cancelable: true });
-    const newDiv = document.createElement("div");
+    console.log("new avatar testing click 8.0");
+    // var custom=new CustomEvent('custom_event',{bubbles:true,cancelable:true});
+    // type, detail
+    // const newDiv = document.createElement("div");
+    // const testHTML = document.getElementById("hello");
+    console.log(this.myElement);
     console.log("event is", event);
     // tslint:disable-next-line
-    window.basisDispatchNativeEvent(event);
-    window.basisDispatchCustomEvent(newDiv, custom);
+    // (window as any).basisDispatchNativeEvent(newDiv, event);
+    window.basisDispatchCustomEvent(this.myElement, {
+      type: "event",
+      detail: event
+    });
   }
+  get myElement() { return getElement(this); }
 };
 AvatarInitial.style = avatarInitialCss;
 

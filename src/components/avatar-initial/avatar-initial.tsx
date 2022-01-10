@@ -1,4 +1,5 @@
 import { Component, Host, h, Prop } from '@stencil/core';
+import { Element } from '@stencil/core';
 
 @Component({
   tag: 'avatar-initial',
@@ -21,10 +22,14 @@ export class AvatarInitial {
     */
    @Prop() name: string;
 
+   @Element() myElement: HTMLElement;
+
+
+
   render() {
     return (
       <Host>
-        <div style={this.generateAvatar()} onClick={(event) => this.onAvatarClick(event)}>
+        <div id="hello" style={this.generateAvatar()} onClick={(event) => this.onAvatarClick(event, document.getElementById("hello"))}>
           {this.getInitails()}
         </div>
         <slot></slot>
@@ -64,21 +69,26 @@ export class AvatarInitial {
     return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(" ")[1].charAt(0).toUpperCase();
   }
 
-  onAvatarClick(event: Event): void {
+  onAvatarClick(event: Event, html: HTMLElement): void {
 
     // const target = new EventTarget();
     // target.addEventListener('customEvent', console.log);
     // target.dispatchEvent(new Event('customEvent'));
-    console.log("new avatar testing click 6.0")
-    var custom=new CustomEvent('custom_event',{bubbles:true,cancelable:true});
-    const newDiv = document.createElement("div");
+    console.log("new avatar testing click 8.0")
+    // var custom=new CustomEvent('custom_event',{bubbles:true,cancelable:true});
+    // type, detail
+    // const newDiv = document.createElement("div");
+    // const testHTML = document.getElementById("hello");
+    console.log(this.myElement);
 
     console.log("event is", event);
     // tslint:disable-next-line
-    (window as any).basisDispatchNativeEvent(newDiv, event);
+    // (window as any).basisDispatchNativeEvent(newDiv, event);
 
-    (window as any).basisDispatchCustomEvent(newDiv, custom);
+    (window as any).basisDispatchCustomEvent(this.myElement, {
+      type: "event",
+      detail: event
+    });
     
-
   }
 }
