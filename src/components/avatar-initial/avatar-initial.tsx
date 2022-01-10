@@ -74,7 +74,7 @@ export class AvatarInitial {
     // const target = new EventTarget();
     // target.addEventListener('customEvent', console.log);
     // target.dispatchEvent(new Event('customEvent'));
-    console.log("new avatar testing click 8.0")
+    console.log("new avatar testing click 9.0")
     // var custom=new CustomEvent('custom_event',{bubbles:true,cancelable:true});
     // type, detail
     // const newDiv = document.createElement("div");
@@ -82,13 +82,9 @@ export class AvatarInitial {
     console.log(this.myElement);
 
     console.log("event is", event);
-    // tslint:disable-next-line
-    // (window as any).basisDispatchNativeEvent(newDiv, event);
 
-    (window as any).basisDispatchCustomEvent(this.myElement, {
-      type: "event",
-      detail: event
-    });
+
+    (window as any).basisDispatchCustomEvent(this.myElement, event);
     
   }
 }
