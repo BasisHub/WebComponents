@@ -23,5 +23,5 @@ export declare class AvatarInitial {
     borderRadius: string;
   };
   getInitails(): string;
-  onAvatarClick(): void;
+  onAvatarClick(event: Event): void;
 }
