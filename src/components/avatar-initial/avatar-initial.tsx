@@ -71,7 +71,7 @@ export class AvatarInitial {
     console.log("new avatar testing click")
     var custom=new CustomEvent('custom_event',{bubbles:true,cancelable:true});
     // tslint:disable-next-line
-    (window as any).basisDispatchCustomEvent(null ,custom);
+    (window as any).basisDispatchNativeEvent(custom);
 
   }
 }
