@@ -65,7 +65,6 @@ export class AvatarInitial {
   }
 
   onAvatarClick(event: Event): void {
-    (window as any).basisDispatchNativeEvent(event);
 
     // const target = new EventTarget();
     // target.addEventListener('customEvent', console.log);
@@ -76,6 +75,8 @@ export class AvatarInitial {
 
     console.log("event is", event);
     // tslint:disable-next-line
+    (window as any).basisDispatchNativeEvent(newDiv, event);
+
     (window as any).basisDispatchCustomEvent(newDiv, custom);
     
 
