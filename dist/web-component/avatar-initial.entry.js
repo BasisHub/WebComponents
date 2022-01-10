@@ -1,4 +1,4 @@
-import { r as registerInstance, h, e as Host } from './index-9f5637c5.js';
+import { r as registerInstance, h, e as Host } from './index-d5c799a6.js';
 
 const avatarInitialCss = ":host{display:block}";
 
@@ -7,7 +7,7 @@ let AvatarInitial = class {
     registerInstance(this, hostRef);
   }
   render() {
-    return (h(Host, null, h("div", { style: this.generateAvatar() }, this.getInitails()), h("slot", null)));
+    return (h(Host, null, h("div", { style: this.generateAvatar(), onClick: () => this.onAvatarClick() }, this.getInitails()), h("slot", null)));
   }
   generateAvatar() {
     let colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e", "#16a085",
@@ -33,6 +33,15 @@ let AvatarInitial = class {
       return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(' ')[0].charAt(1).toUpperCase();
     }
     return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(" ")[1].charAt(0).toUpperCase();
+  }
+  onAvatarClick() {
+    // const target = new EventTarget();
+    // target.addEventListener('customEvent', console.log);
+    // target.dispatchEvent(new Event('customEvent'));
+    console.log("new avatar testing click");
+    var custom = new CustomEvent('custom_event', { bubbles: true, cancelable: true });
+    // tslint:disable-next-line
+    window.basisDispatchCustomEvent(null, custom);
   }
 };
 AvatarInitial.style = avatarInitialCss;

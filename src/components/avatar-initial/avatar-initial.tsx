@@ -24,7 +24,7 @@ export class AvatarInitial {
   render() {
     return (
       <Host>
-        <div style={this.generateAvatar()}>
+        <div style={this.generateAvatar()} onClick={() => this.onAvatarClick()}>
           {this.getInitails()}
         </div>
         <slot></slot>
@@ -64,4 +64,14 @@ export class AvatarInitial {
     return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(" ")[1].charAt(0).toUpperCase();
   }
 
+  onAvatarClick(): void {
+    // const target = new EventTarget();
+    // target.addEventListener('customEvent', console.log);
+    // target.dispatchEvent(new Event('customEvent'));
+    console.log("new avatar testing click")
+    var custom=new CustomEvent('custom_event',{bubbles:true,cancelable:true});
+    // tslint:disable-next-line
+    (window as any).basisDispatchCustomEvent(null ,custom);
+
+  }
 }

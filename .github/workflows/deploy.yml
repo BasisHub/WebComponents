@@ -7,6 +7,7 @@ on:
  push:
     branches:
       - release
+      - create-webcomponent-to-generate-avatar-icons-from-initial-#1
 
 jobs:
 
