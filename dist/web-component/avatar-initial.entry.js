@@ -7,7 +7,7 @@ let AvatarInitial = class {
     registerInstance(this, hostRef);
   }
   render() {
-    return (h(Host, null, h("div", { id: "hello", style: this.generateAvatar(), onClick: (event) => this.onAvatarClick(event, document.getElementById("hello")) }, this.getInitails()), h("slot", null)));
+    return (h(Host, null, h("div", { id: "hello", style: this.generateAvatar(), onClick: (event) => this.onAvatarClick(event) }, this.getInitails()), h("slot", null)));
   }
   generateAvatar() {
     let colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e", "#16a085",
@@ -34,7 +34,7 @@ let AvatarInitial = class {
     }
     return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(" ")[1].charAt(0).toUpperCase();
   }
-  onAvatarClick(event, html) {
+  onAvatarClick(event) {
     // const target = new EventTarget();
     // target.addEventListener('customEvent', console.log);
     // target.dispatchEvent(new Event('customEvent'));

@@ -29,7 +29,7 @@ export class AvatarInitial {
   render() {
     return (
       <Host>
-        <div id="hello" style={this.generateAvatar()} onClick={(event) => this.onAvatarClick(event, document.getElementById("hello"))}>
+        <div id="hello" style={this.generateAvatar()} onClick={(event) => this.onAvatarClick(event)}>
           {this.getInitails()}
         </div>
         <slot></slot>
@@ -69,7 +69,7 @@ export class AvatarInitial {
     return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(" ")[1].charAt(0).toUpperCase();
   }
 
-  onAvatarClick(event: Event, html: HTMLElement): void {
+  onAvatarClick(event: Event): void {
 
     // const target = new EventTarget();
     // target.addEventListener('customEvent', console.log);
