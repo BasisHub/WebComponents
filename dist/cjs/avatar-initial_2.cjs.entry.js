@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-5bebc6c3.js');
+const index = require('./index-03929dd6.js');
 
 const avatarInitialCss = ":host{display:block}";
 
@@ -11,7 +11,7 @@ let AvatarInitial = class {
     index.registerInstance(this, hostRef);
   }
   render() {
-    return (index.h(index.Host, null, index.h("div", { style: this.generateAvatar() }, this.getInitails()), index.h("slot", null)));
+    return (index.h(index.Host, null, index.h("div", { id: "hello", style: this.generateAvatar(), onClick: (event) => this.onAvatarClick(event) }, this.getInitails()), index.h("slot", null)));
   }
   generateAvatar() {
     let colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e", "#16a085",
@@ -38,6 +38,20 @@ let AvatarInitial = class {
     }
     return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(" ")[1].charAt(0).toUpperCase();
   }
+  onAvatarClick(event) {
+    // const target = new EventTarget();
+    // target.addEventListener('customEvent', console.log);
+    // target.dispatchEvent(new Event('customEvent'));
+    console.log("new avatar testing click 9.0");
+    // var custom=new CustomEvent('custom_event',{bubbles:true,cancelable:true});
+    // type, detail
+    // const newDiv = document.createElement("div");
+    // const testHTML = document.getElementById("hello");
+    console.log(this.myElement);
+    console.log("event is", event);
+    window.basisDispatchCustomEvent(this.myElement, event);
+  }
+  get myElement() { return index.getElement(this); }
 };
 AvatarInitial.style = avatarInitialCss;
 
