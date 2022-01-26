@@ -27,6 +27,40 @@ export class MyComponent {
   }
 
   render() {
-    return <div>Hello, World! I'm {this.getText()}</div>;
+    return <div class="search">
+      <div class="searchbox">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="list">
+        <div class="list-item">
+          <div class="list-item-logo"></div>
+          <div class="list-item-company-name">Barone LLC</div>
+          <div class="list-item-company-description">
+            Pambroke Pines
+          </div>
+        </div>
+        <div class="list-item">
+          <div class="list-item-logo"></div>
+          <div class="list-item-company-name">Jeeon Bd</div>
+          <div class="list-item-company-description">
+            Pambroke Pines
+          </div>
+        </div>
+        <div class="list-item">
+        <div class="list-item-logo"></div>
+          <div class="list-item-company-name">Basis Europe</div>
+          <div class="list-item-company-description">
+            IT Company
+          </div>
+        </div>
+        <div class="list-item">
+        <div class="list-item-logo"></div>
+          <div class="list-item-company-name">Home</div>
+          <div class="list-item-company-description">
+            Navigate to home
+          </div>
+        </div>
+      </div>
+    </div>;
   }
 }

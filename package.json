@@ -23,6 +23,7 @@
     "prepublish": "npm run build --prod"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "@stencil/core": "^2.7.0"
   },
   "devDependencies": {
