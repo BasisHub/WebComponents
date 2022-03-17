@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'web-component',
+  globalStyle: 'src/global/global.css',
   invisiblePrehydration: true,
   outputTargets: [
     {

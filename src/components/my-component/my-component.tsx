@@ -1,9 +1,10 @@
-import { Component, Prop, h } from '@stencil/core';
-import { format } from '../../utils/utils';
+import { Component, Prop, h, getAssetPath, State } from '@stencil/core';
+// import { format } from '../../utils/utils';
 
 @Component({
   tag: 'my-component',
   styleUrl: 'my-component.css',
+  assetsDirs: ['assets'],
   shadow: true,
 })
 export class MyComponent {
@@ -22,32 +23,41 @@ export class MyComponent {
    */
   @Prop() last: string;
 
-  private getText(): string {
-    return format(this.first, this.middle, this.last);
+  @State() value: string;
+
+
+  // private getText(): string {
+  //   return format(this.first, this.middle, this.last);
+  // }
+
+  handleChange(event) {
+    this.value = event.target.value;
+    console.log("AHAHA", this.value)
   }
 
   render() {
     return <div class="search">
       <div class="searchbox">
-        <i class="fas fa-user"></i>
+          <label class="searchIcon">Icon</label>
+          <input id="search" type="text" placeholder="Search for Company, menu or Employee" value={this.value} onInput={(event) => this.handleChange(event)} />
       </div>
       <div class="list">
         <div class="list-item">
-          <div class="list-item-logo"></div>
+          <img class="list-item-logo" src={getAssetPath(`./assets/lays.png`)} />
           <div class="list-item-company-name">Barone LLC</div>
           <div class="list-item-company-description">
             Pambroke Pines
           </div>
         </div>
         <div class="list-item">
-          <div class="list-item-logo"></div>
+        <img class="list-item-logo" src={getAssetPath(`./assets/addidas.png`)} />
           <div class="list-item-company-name">Jeeon Bd</div>
           <div class="list-item-company-description">
             Pambroke Pines
           </div>
         </div>
         <div class="list-item">
-        <div class="list-item-logo"></div>
+        <img class="list-item-logo" src={getAssetPath(`./assets/basis.png`)} />
           <div class="list-item-company-name">Basis Europe</div>
           <div class="list-item-company-description">
             IT Company

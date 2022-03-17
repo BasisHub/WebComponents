@@ -1,3 +1,111 @@
 :host {
   display: block;
 }
+
+.test {
+  background-color: red;
+}
+
+.search {
+  position: relative;
+  width: 297px;
+  height: 433px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 10px 35px rgba(47, 59, 73, 0.15);
+  border-radius: 8px;
+}
+
+.searchbox {
+  background: red;
+  position: absolute;
+  width: 297px;
+  height: 50px;
+  left: 0px;
+  top: 0px;
+}
+
+.searchPlaceHolder{
+
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  background: gold;
+
+  position: absolute;
+  width: 297px;
+  height: 374px;
+  left: 0px;
+  top: 54px;
+}
+
+.list-item {
+  position: static;
+ width: 297px;
+ height: 74px;
+ left: 0px;
+/* top: calc(50% - 74px/2 - 150px); */
+
+ background: skyblue;
+
+/* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 1px 0px;
+}
+
+.list-item-logo {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: 16px;
+  margin-top: 12px;
+
+  background: url(https://logos-world.net/wp-content/uploads/2020/12/Lays-Logo.png);
+  border: 1px solid #F1F1F1;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.list-item-company-name {
+  position: absolute;
+  width: 105px;
+  height: 17px;
+  left: 76px;
+  margin-top: 10px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+/* identical to box height */
+
+  display: flex;
+  align-items: flex-end;
+
+  color: rgba(51, 62, 64, 0.8);
+}
+
+.list-item-company-description {
+  position: absolute;
+  width: 150px;
+  height: 14px;
+  left: 76px;
+  margin-top: 30px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: flex-end;
+
+  color: #A1A5A7;
+}

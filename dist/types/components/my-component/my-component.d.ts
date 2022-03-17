@@ -11,6 +11,7 @@ export declare class MyComponent {
    * The last name
    */
   last: string;
-  private getText;
+  value: string;
+  handleChange(event: any): void;
   render(): any;
 }

@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './index-21105b94.js';
+import { r as registerInstance, h, H as Host, g as getElement, a as getAssetPath } from './index-8bf61c1b.js';
 
 const avatarInitialCss = ":host{display:block}";
 
@@ -35,38 +35,26 @@ let AvatarInitial = class {
     return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(" ")[1].charAt(0).toUpperCase();
   }
   onAvatarClick(event) {
-    // const target = new EventTarget();
-    // target.addEventListener('customEvent', console.log);
-    // target.dispatchEvent(new Event('customEvent'));
-    console.log("new avatar testing click 9.0");
-    // var custom=new CustomEvent('custom_event',{bubbles:true,cancelable:true});
-    // type, detail
-    // const newDiv = document.createElement("div");
-    // const testHTML = document.getElementById("hello");
-    console.log(this.myElement);
-    console.log("event is", event);
     window.basisDispatchCustomEvent(this.myElement, event);
   }
   get myElement() { return getElement(this); }
 };
 AvatarInitial.style = avatarInitialCss;
 
-function format(first, middle, last) {
-  return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
-}
-
-const myComponentCss = ":host{display:block}";
+const myComponentCss = ":host{display:block}.test{background-color:red}.search{position:relative;width:297px;height:433px;background:#FFFFFF;box-shadow:0px 10px 35px rgba(47, 59, 73, 0.15);border-radius:8px}.searchbox{background:red;position:absolute;width:297px;height:50px;left:0px;top:0px}.list{display:flex;flex-direction:column;align-items:flex-start;padding:0px;background:gold;position:absolute;width:297px;height:374px;left:0px;top:54px}.list-item{position:static;width:297px;height:74px;left:0px;background:skyblue;flex:none;order:0;align-self:stretch;flex-grow:0;margin:1px 0px}.list-item-logo{position:absolute;width:48px;height:48px;left:16px;margin-top:12px;background:url(https://logos-world.net/wp-content/uploads/2020/12/Lays-Logo.png);border:1px solid #F1F1F1;box-sizing:border-box;border-radius:8px}.list-item-company-name{position:absolute;width:105px;height:17px;left:76px;margin-top:10px;font-style:normal;font-weight:normal;font-size:14px;line-height:17px;display:flex;align-items:flex-end;color:rgba(51, 62, 64, 0.8)}.list-item-company-description{position:absolute;width:150px;height:14px;left:76px;margin-top:30px;font-style:normal;font-weight:normal;font-size:12px;line-height:14px;display:flex;align-items:flex-end;color:#A1A5A7}";
 
 let MyComponent = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
+    this.image = "lays.png";
   }
-  getText() {
-    return format(this.first, this.middle, this.last);
-  }
+  // private getText(): string {
+  //   return format(this.first, this.middle, this.last);
+  // }
   render() {
-    return h("div", null, "Hello, World! I'm ", this.getText());
+    return h("div", { class: "search" }, h("div", { class: "searchbox" }, h("i", { class: "fas fa-user" })), h("div", { class: "list" }, h("div", { class: "list-item" }, h("div", { class: "list-item-logo" }), h("img", { src: getAssetPath(`./assets/${this.image}`) }), h("div", { class: "list-item-company-name" }, "Barone LLC"), h("div", { class: "list-item-company-description" }, "Pambroke Pines")), h("div", { class: "list-item" }, h("div", { class: "list-item-logo" }), h("div", { class: "list-item-company-name" }, "Jeeon Bd"), h("div", { class: "list-item-company-description" }, "Pambroke Pines")), h("div", { class: "list-item" }, h("div", { class: "list-item-logo" }), h("div", { class: "list-item-company-name" }, "Basis Europe"), h("div", { class: "list-item-company-description" }, "IT Company")), h("div", { class: "list-item" }, h("div", { class: "list-item-logo" }), h("div", { class: "list-item-company-name" }, "Home"), h("div", { class: "list-item-company-description" }, "Navigate to home"))));
   }
+  static get assetsDirs() { return ["assets"]; }
 };
 MyComponent.style = myComponentCss;
 

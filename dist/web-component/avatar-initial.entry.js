@@ -1,4 +1,4 @@
-import { r as registerInstance, h, e as Host, g as getElement } from './index-18f4d202.js';
+import { r as registerInstance, h, e as Host, g as getElement } from './index-f51a6923.js';
 
 const avatarInitialCss = ":host{display:block}";
 
