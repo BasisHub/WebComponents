@@ -8,31 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AvatarInitial {
         /**
-          * The height of the avatar
-         */
-        "height": number;
-        /**
           * The user name
          */
         "name": string;
         /**
-          * The width of the avatar
+          * The size of the avatar
          */
-        "width": number;
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+        "size": number;
     }
 }
 declare global {
@@ -42,49 +24,23 @@ declare global {
         prototype: HTMLAvatarInitialElement;
         new (): HTMLAvatarInitialElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
         "avatar-initial": HTMLAvatarInitialElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
     interface AvatarInitial {
         /**
-          * The height of the avatar
-         */
-        "height"?: number;
-        /**
           * The user name
          */
         "name"?: string;
         /**
-          * The width of the avatar
+          * The size of the avatar
          */
-        "width"?: number;
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+        "size"?: number;
     }
     interface IntrinsicElements {
         "avatar-initial": AvatarInitial;
-        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -92,7 +48,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "avatar-initial": LocalJSX.AvatarInitial & JSXBase.HTMLAttributes<HTMLAvatarInitialElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }
