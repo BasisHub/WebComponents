@@ -11,14 +11,14 @@ export class AvatarInitial {
    * The size of the avatar
    */
    @Prop() size: number; 
-   /**
-    * The user name
-    */
+
+   @Prop() text: string = "white";
+
+   @Prop() background: string; 
+
    @Prop() name: string;
 
-   @Prop() textColor ='#FFF';
-
-   @Prop() backgroundColor: string;
+ 
 
    @Element() myElement: HTMLElement;
 
@@ -43,11 +43,11 @@ export class AvatarInitial {
     let colorIndex = charIndex % 19;
 
     let style = {
-      backgroundColor: this.backgroundColor ? this.backgroundColor : colors[colorIndex],
+      backgroundColor: this.background ? this.background : colors[colorIndex],
       width: this.size+"px",
       height: this.size+"px",
-      color: this.textColor,
-      font : this.size / 2 + "px",
+      color: this.text,
+      font : this.size / 2 + "px Arial",
       lineHeight: this.size + 'px',
     }
     
