@@ -8,31 +8,26 @@ import { Element } from '@stencil/core';
 })
 export class AvatarInitial {
   /**
-   * The width of the avatar
+   * The size of the avatar
    */
-   @Prop() width: number;
+   @Prop() size: number; 
 
-   /**
-    * The height of the avatar
-    */
-   @Prop() height: number;
- 
-   /**
-    * The user name
-    */
+   @Prop() text: string = "white";
+
+   @Prop() background: string; 
+
    @Prop() name: string;
 
+ 
+
    @Element() myElement: HTMLElement;
-
-
 
   render() {
     return (
       <Host>
-        <div id="hello" style={this.generateAvatar()} onClick={(event) => this.onAvatarClick(event)}>
+        <div class="avatar" style={this.generateAvatar()} onClick={(event) => this.onAvatarClick(event)}>
           {this.getInitails()}
         </div>
-        <slot></slot>
       </Host>
     );
   }
@@ -46,23 +41,19 @@ export class AvatarInitial {
     let charIndex = initials.charCodeAt(0) - 65;
     let colorIndex = charIndex % 19;
 
-
     let style = {
-      backgroundColor: colors[colorIndex],
-      width: this.width+"px",
-      height: this.height+"px",
-      color: '#FFF',
-      textAlign: 'center',
-      font : this.width / 2 + "px Arial",
-      lineHeight: this.height + 'px',
-      borderRadius: '50%'
+      backgroundColor: this.background ? this.background : colors[colorIndex],
+      width: this.size+"px",
+      height: this.size+"px",
+      color: this.text,
+      font : this.size / 2 + "px Arial",
+      lineHeight: this.size + 'px',
     }
-
+    
     return style;
   }
 
   getInitails(): string {
-
     if(this.name.split(' ').length <= 1) {
       return this.name.split(' ')[0].charAt(0).toUpperCase() + this.name.split(' ')[0].charAt(1).toUpperCase()
     }
