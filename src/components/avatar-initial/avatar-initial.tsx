@@ -28,7 +28,6 @@ export class AvatarInitial {
         <div class="avatar" style={this.generateAvatar()} onClick={(event) => this.onAvatarClick(event)}>
           {this.getInitails()}
         </div>
-        <slot></slot>
       </Host>
     );
   }
