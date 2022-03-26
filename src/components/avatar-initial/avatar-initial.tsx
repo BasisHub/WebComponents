@@ -16,6 +16,10 @@ export class AvatarInitial {
     */
    @Prop() name: string;
 
+   @Prop() textColor ='#FFF';
+
+   @Prop() backgroundColor: string;
+
    @Element() myElement: HTMLElement;
 
   render() {
@@ -39,11 +43,11 @@ export class AvatarInitial {
     let colorIndex = charIndex % 19;
 
     let style = {
-      backgroundColor: colors[colorIndex],
+      backgroundColor: this.backgroundColor ? this.backgroundColor : colors[colorIndex],
       width: this.size+"px",
       height: this.size+"px",
-      color: '#FFF',
-      font : this.size / 2 + "px Arial",
+      color: this.textColor,
+      font : this.size / 2 + "px",
       lineHeight: this.size + 'px',
     }
     
