@@ -7,14 +7,13 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AvatarInitial {
-        /**
-          * The user name
-         */
+        "background": string;
         "name": string;
         /**
           * The size of the avatar
          */
         "size": number;
+        "text": string;
     }
 }
 declare global {
@@ -30,14 +29,13 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AvatarInitial {
-        /**
-          * The user name
-         */
+        "background"?: string;
         "name"?: string;
         /**
           * The size of the avatar
          */
         "size"?: number;
+        "text"?: string;
     }
     interface IntrinsicElements {
         "avatar-initial": AvatarInitial;
