@@ -1,11 +1,15 @@
 import { Component, Host, h, Prop } from '@stencil/core';
 import { Element } from '@stencil/core';
+import { Event, EventEmitter } from '@stencil/core';
+
 
 @Component({
   tag: 'avatar-initial',
   styleUrl: 'avatar-initial.css',
   shadow: true,
 })
+
+
 export class AvatarInitial {
   /**
    * The size of the avatar
@@ -17,6 +21,10 @@ export class AvatarInitial {
    @Prop() name: string;
 
    @Element() myElement: HTMLElement;
+
+   @Event({
+    eventName: 'onAvatarClick',
+  }) avatarClickEvent: EventEmitter<Event>;
 
   render() {
     return (
@@ -58,6 +66,7 @@ export class AvatarInitial {
   }
 
   onAvatarClick(event: Event): void {
-    (window as any).basisDispatchCustomEvent(this.myElement, event);
+    // (window as any).basisDispatchCustomEvent(this.myElement, event);
+    this.avatarClickEvent.emit(event);
   }
 }
