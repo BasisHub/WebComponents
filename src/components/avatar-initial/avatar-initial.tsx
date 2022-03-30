@@ -9,7 +9,6 @@ import { Event, EventEmitter } from '@stencil/core';
   shadow: true,
 })
 
-
 export class AvatarInitial {
   /**
    * The size of the avatar
@@ -28,7 +27,7 @@ export class AvatarInitial {
 
    @Event({
     eventName: 'onAvatarClick',
-  }) avatarClickEvent: EventEmitter<Event>;
+  }) avatarClickEvent: EventEmitter<void>;
 
   render() {
     return (
@@ -70,6 +69,6 @@ export class AvatarInitial {
 
   onAvatarClick(event: Event): void {
     // (window as any).basisDispatchCustomEvent(this.myElement, event);
-    this.avatarClickEvent.emit(event);
+    this.avatarClickEvent.emit();
   }
 }
